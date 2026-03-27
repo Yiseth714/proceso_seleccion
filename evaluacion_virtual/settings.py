@@ -144,3 +144,11 @@ LOGIN_REDIRECT_URL = '/login/'
 LOGOUT_REDIRECT_URL = '/login/'
 
 AUTH_USER_MODEL = 'usuarios.Usuario'
+
+# Reemplaza 'tu-proyecto.up.railway.app' por tu URL real de Railway
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-8805.up.railway.app/',
+    'https://*.up.railway.app' # Esto cubre cualquier subdominio
+]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
