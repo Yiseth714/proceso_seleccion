@@ -32,6 +32,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'apps.usuarios',
     'apps.evaluaciones'
 ]
@@ -120,7 +122,8 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'     # para producción (collectstatic)
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # Donde Whitenoise buscará
 
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Almacenamiento optimizado para producción
