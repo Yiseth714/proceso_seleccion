@@ -3,10 +3,15 @@ import environ
 import dj_database_url
 import os
 
+env = environ.Env(
+    # establecer tipos por defecto y valores si no existen
+    DEBUG=(bool, False)
+)
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Leer el archivo .env si existe (solo para desarrollo local)
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
