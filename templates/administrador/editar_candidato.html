@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Editar candidato{% endblock %}
+
+{% block content %}
+<div class="panel">
+    <h2 class="title-red mb-3">Editar candidato</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-red">Guardar cambios</button>
+            <a href="{% url 'crear_usuario' %}" class="btn btn-outline-red">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

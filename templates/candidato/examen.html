@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Iniciar sesión | Sistema de Evaluación Virtual{% endblock %}
+
+{% block content %}
+
+<h2>Examen</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    {% for pregunta in preguntas %}
+        <p><strong>{{ pregunta.texto }}</strong></p>
+
+        {% for opcion in pregunta.opciones.all %}
+            <label>
+                <input type="radio" 
+                       name="{{ pregunta.id }}" 
+                       value="{{ opcion.id }}"
+                       required>
+                {{ opcion.texto }}
+            </label><br>
+        {% endfor %}
+
+        <hr>
+    {% endfor %}
+
+    <button type="submit">Enviar</button>
+</form>
+
+{% if error %}
+<div class="alert alert-danger">
+    {{ error }}
+</div>
+{% endif %}
+{% endblock %}
+

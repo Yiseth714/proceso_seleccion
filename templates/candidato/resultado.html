@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Iniciar sesión | Sistema de Evaluación Virtual{% endblock %}
+
+{% block content %}
+
+<h2>Resultado</h2>
+
+<p>Tu puntaje es: {{ puntaje }}</p>
+
+{% if error %}
+<div class="alert alert-danger">
+    {{ error }}
+</div>
+{% endif %}
+{% endblock %}
+

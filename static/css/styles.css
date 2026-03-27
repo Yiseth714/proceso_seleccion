@@ -1,0 +1,105 @@
+:root {
+    --color-primary: #b00020;
+    --color-primary-dark: #7f0016;
+    --color-primary-soft: #ffe5ea;
+    --color-bg: #fff7f8;
+    --color-surface: #ffffff;
+    --color-border: #f1c9d1;
+    --color-text: #2d0f14;
+}
+
+body {
+    background: linear-gradient(180deg, #fff5f7 0%, #ffffff 45%, #fff2f5 100%);
+    color: var(--color-text);
+    min-height: 100vh;
+}
+
+.navbar-red {
+    background: linear-gradient(90deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+    box-shadow: 0 4px 12px rgba(127, 0, 22, 0.25);
+}
+
+.brand-logo {
+    width: 38px;
+    height: 38px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    margin-right: 8px;
+}
+
+.app-main {
+    padding-top: 28px;
+    padding-bottom: 28px;
+}
+
+.panel {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(176, 0, 32, 0.08);
+    padding: 24px;
+}
+
+.title-red {
+    color: var(--color-primary-dark);
+    font-weight: 700;
+}
+
+.btn-red {
+    background: linear-gradient(90deg, var(--color-primary) 0%, #d50032 100%);
+    border: none;
+    color: #ffffff;
+}
+
+.btn-red:hover {
+    background: linear-gradient(90deg, var(--color-primary-dark) 0%, #ab0029 100%);
+    color: #ffffff;
+}
+
+.btn-outline-red {
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    background: #ffffff;
+}
+
+.btn-outline-red:hover {
+    background: var(--color-primary-soft);
+    color: var(--color-primary-dark);
+}
+
+.table-red thead th {
+    background: var(--color-primary-soft);
+    color: var(--color-primary-dark);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.table-red td {
+    vertical-align: middle;
+    border-color: #f8dce2;
+}
+
+.avatar-thumb {
+    width: 52px;
+    height: 52px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 8px rgba(176, 0, 32, 0.15);
+}
+
+.footer-red {
+    background: #fff1f4;
+    border-top: 1px solid var(--color-border);
+}
+
+.link-red {
+    color: var(--color-primary-dark);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link-red:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Panel administrador{% endblock %}
+
+{% block content %}
+<div class="panel mb-4">
+    <h2 class="title-red mb-2">Crear candidato</h2>
+    <p class="mb-3">Este formulario crea usuarios con rol de candidato.</p>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-red">Crear</button>
+    </form>
+</div>
+
+<div class="panel">
+    <h3 class="title-red mb-3">Candidatos registrados</h3>
+
+    {% if usuarios %}
+    <div class="table-responsive">
+        <table class="table table-red">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Usuario</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Cedula</th>
+                    <th>Puntaje</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                <tr>
+                    <td>
+                        {% if usuario.foto %}
+                            <img src="{{ usuario.foto.url }}" alt="Foto {{ usuario.username }}" class="avatar-thumb">
+                        {% else %}
+                            Sin foto
+                        {% endif %}
+                    </td>
+                    <td>{{ usuario.username }}</td>
+                    <td>{{ usuario.first_name }} {{ usuario.last_name }}</td>
+                    <td>{{ usuario.email }}</td>
+                    <td>{{ usuario.cedula }}</td>
+                    <td>
+                        {% if usuario.puntaje_examen != None %}
+                            {{ usuario.puntaje_examen }}
+                        {% else %}
+                            Pendiente
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a class="link-red" href="{% url 'editar_usuario' usuario.pk %}">Editar</a>
+                        |
+                        <a class="link-red" href="{% url 'eliminar_usuario' usuario.pk %}">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p>No hay candidatos registrados.</p>
+    {% endif %}
+</div>
+{% endblock %}

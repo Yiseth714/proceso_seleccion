@@ -1,0 +1,1 @@
+web: gunicorn evaluacion_virtual.wsgi --log-file -

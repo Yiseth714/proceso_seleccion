@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Eliminar candidato{% endblock %}
+
+{% block content %}
+<div class="panel">
+    <h2 class="title-red mb-3">Eliminar candidato</h2>
+    <p>Estas seguro de eliminar al usuario <strong>{{ object.username }}</strong>?</p>
+
+    <form method="post" class="d-flex gap-2">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Si, eliminar</button>
+        <a href="{% url 'crear_usuario' %}" class="btn btn-outline-red">Cancelar</a>
+    </form>
+</div>
+{% endblock %}
